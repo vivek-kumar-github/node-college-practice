@@ -4,8 +4,8 @@
   "description": "Node practice in class",
   "license": "ISC",
   "author": "",
-  "type": "module",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "file.js",
   "scripts": {
     "start": "node file.js",
     "dev": "nodemon file.js"
