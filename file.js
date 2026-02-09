@@ -89,9 +89,39 @@
 //call stack --> event loop --> registered call back
 
 
+// const a = () => {
+//     b();
+//     console.log(`a : a`);
+// }
+
+// const b = () => {
+//     console.log(`b init`);
+
+//     setTimeout(() => {                     //Micro task lower priority
+//         console.log("b first");
+//     }, 0);
+
+//     setTimeout(() => {
+//         console.log("b second");
+//     }, 0);
+
+//     Promise.resolve().then(() => {         //Macro task Higher priority
+//         console.log(`b Promise Portion`);
+//     });
+
+//     console.log(`b ended`);
+// };
+
+// a();
+// console.log(`Ended`);
+
+
 const a = () => {
     b();
     console.log(`a : a`);
+    Promise.resolve().then(() => {
+        console.log(`a 2nd Promise`);
+    });
 }
 
 const b = () => {
@@ -99,10 +129,6 @@ const b = () => {
 
     setTimeout(() => {                     //Micro task lower priority
         console.log("b first");
-    }, 0);
-
-    setTimeout(() => {
-        console.log("b second");
     }, 0);
 
     Promise.resolve().then(() => {         //Macro task Higher priority
