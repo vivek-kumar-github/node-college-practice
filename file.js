@@ -58,7 +58,10 @@
 // const b = () => {
 //     console.log(`b init`);
 //     setTimeout(() => {
-//         console.log("b processes");
+//         console.log("b first");
+//     }, 100000);
+//     setTimeout(() => {
+//         console.log("b second");
 //     }, 0);
 //     console.log(`b ended`);
 // };
@@ -83,3 +86,31 @@
 // }
 // crash();
 
+//call stack --> event loop --> registered call back
+
+
+const a = () => {
+    b();
+    console.log(`a : a`);
+}
+
+const b = () => {
+    console.log(`b init`);
+
+    setTimeout(() => {                     //Micro task lower priority
+        console.log("b first");
+    }, 0);
+
+    setTimeout(() => {
+        console.log("b second");
+    }, 0);
+
+    Promise.resolve().then(() => {         //Macro task Higher priority
+        console.log(`b Promise Portion`);
+    });
+
+    console.log(`b ended`);
+};
+
+a();
+console.log(`Ended`);
