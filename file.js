@@ -18,12 +18,68 @@
 // console.log("Add ", Add(1, 2));
 // console.log("Multiply ", Multi(2, 3));
 
-const value = require("./counter");
-const funInPage2 = require("./newfile");
-console.log("Value ", value);
-funInPage2();
+// const value = require("./counter");
+// const funInPage2 = require("./newfile");
+// console.log("Value ", value);
+// funInPage2();
 
 // //Wrapper class of js files
 // (exports, module, require, __dirname, __filename) = () => {
 //     //all out code
 // }
+
+
+// const a = () => {
+//     b();
+//     console.log(`a : a`);
+// }
+
+// const b = () => {
+//     console.log(`b : b`);
+// }
+
+// a();
+
+//Empty stack
+
+// a is pushed
+// b is pushed
+// b is executed
+// b is popped
+// a is executed
+// a is popped
+
+
+// const a = () => {
+//     b();
+//     console.log(`a : a`);
+// }
+
+// const b = () => {
+//     console.log(`b init`);
+//     setTimeout(() => {
+//         console.log("b processes");
+//     }, 0);
+//     console.log(`b ended`);
+// };
+
+// a();
+// console.log(`Ended`);
+
+// a is pushed
+// b is pushed
+// b is executed
+// Registering callback
+// b is popped
+// a is executed
+// a is popped
+// last line is pushed
+// last line is executed
+// last line is popped
+
+//Stack overload
+// const crash = () => {
+//     crash();
+// }
+// crash();
+
