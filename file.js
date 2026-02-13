@@ -116,27 +116,42 @@
 // console.log(`Ended`);
 
 
-const a = () => {
-    b();
-    console.log(`a : a`);
-    Promise.resolve().then(() => {
-        console.log(`a 2nd Promise`);
-    });
-}
+// const a = () => {
+//     b();
+//     console.log(`a : a`);
+//     Promise.resolve().then(() => {
+//         console.log(`a 2nd Promise`);
+//     });
+// }
 
-const b = () => {
-    console.log(`b init`);
+// const b = () => {
+//     console.log(`b init`);
 
-    setTimeout(() => {                     //Micro task lower priority
-        console.log("b first");
-    }, 0);
+//     setTimeout(() => {                     //Micro task lower priority
+//         console.log("b first");
+//     }, 0);
 
-    Promise.resolve().then(() => {         //Macro task Higher priority
-        console.log(`b Promise Portion`);
-    });
+//     Promise.resolve().then(() => {         //Macro task Higher priority
+//         console.log(`b Promise Portion`);
+//     });
 
-    console.log(`b ended`);
-};
+//     console.log(`b ended`);
+// };
 
-a();
-console.log(`Ended`);
+// a();
+// console.log(`Ended`);
+
+const fetchData = new Promise((resolve, reject) => { //Promise does not need to be called it is executed directly
+    const success = false;
+    if (success) {
+        resolve("Data Fetched");
+        console.log("Data fetched log");
+    } else {                                         // Reject case
+        reject("Data Not Found error");              //Reject message error message
+        console.log("Data not found");
+    }
+});
+
+fetchData.catch((error) => {                       //error variable contains the error message
+    console.log("Error occured", error)
+})
