@@ -1,5 +1,7 @@
 // import os from "os";
 
+const { response } = require("express");
+
 // console.log("Platform ", os.platform());
 // console.log("Architecture ", os.arch());
 // console.log("Memory", os.freemem());
@@ -141,17 +143,74 @@
 // a();
 // console.log(`Ended`);
 
-const fetchData = new Promise((resolve, reject) => { //Promise does not need to be called it is executed directly
-    const success = false;
-    if (success) {
-        resolve("Data Fetched");
-        console.log("Data fetched log");
-    } else {                                         // Reject case
-        reject("Data Not Found error");              //Reject message error message
-        console.log("Data not found");
-    }
-});
 
-fetchData.catch((error) => {                       //error variable contains the error message
-    console.log("Error occured", error)
-})
+
+// const fetchData = new Promise((resolve, reject) => { //Promise does not need to be called it is executed directly
+//     const success = false;
+//     if (success) {
+//         resolve("Data Fetched");
+//         console.log("Data fetched log");
+//     } else {                                         // Reject case
+//         reject("Data Not Found error");              //Reject message error message
+//         console.log("Data not found");
+//     }
+// });
+
+// fetchData.catch((error) => {                       //error variable contains the error message
+//     console.log("Error occured", error)
+// })
+
+
+
+// const login = () => {
+//     return Promise.resolve("Login Success");
+// };
+// const getUser = () => {
+//     return Promise.resolve("User Found");
+// };
+// const getUserName = () => {
+//     return Promise.resolve("User Name Found");
+// };
+
+// //Traditiona method
+// login().then((err, response) => {
+//     if (err) {
+//         console.log("Error ", err);
+//     }
+//     getUser().then(() => {
+//         getUserName().then(() => {
+//             console.log("User name found");
+//         });
+//     });
+// });
+
+// //Chaining method
+// login()
+//     .then(getUser)         //output of this .then() is input of next .then()
+//     .then(getUserName)
+//     .then(console.log)
+//     .catch((err) => console.log(err));
+
+
+// Promise.resolve(10)
+//     .then((x) => {
+//         return x + 10;      //() => () //this automatically returns value inside it                           
+//     })                      //() => {} //But here we need to explicitly return the value
+//     .then((x) => {          //if we not return from () => {} it will be undefined
+//         return x + 20;      //undefined + 20 = NaN
+//     })
+//     .then(console.log);
+
+
+
+// async await
+const sample = async () => {
+    console.log("Started");
+    await fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    console.log("Ended");
+};
+console.log("Satred_____1");
+sample();
+console.log("Started____2");
