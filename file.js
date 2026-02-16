@@ -1,6 +1,6 @@
 // import os from "os";
 
-const { response } = require("express");
+// const { response } = require("express");
 
 // console.log("Platform ", os.platform());
 // console.log("Architecture ", os.arch());
@@ -204,13 +204,49 @@ const { response } = require("express");
 
 
 // async await
-const sample = async () => {
-    console.log("Started");
-    await fetch("https://jsonplaceholder.typicode.com/posts/1")
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-    console.log("Ended");
-};
-console.log("Satred_____1");
-sample();
-console.log("Started____2");
+// const sample = async () => {
+//     console.log("Started");
+//     await fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((response) => response.json())
+//         .then((json) => console.log(json));
+//     console.log("Ended");
+// };
+// console.log("Satred_____1");
+// sample();
+// console.log("Started____2");
+
+
+//Parallel execution
+// const sample = async () => {
+//     console.log("Started");
+//     const func1 = fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((response) => response.json())
+//     // .then((json) => console.log(json));
+//     const func2 = fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((response) => response.json())
+//     // .then((json) => console.log(json));
+
+//     const a = await func1;
+//     const b = await func2;
+
+//     console.log("Sample b ", b);
+//     console.log("Sample a ", a);
+// };
+
+// sample();
+
+
+//Sequential execution
+// const sample = async () => {
+//     console.log("Started");
+//     const a = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((response) => response.json())
+//         // .then((json) => console.log(json));
+//     const b = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((response) => response.json())
+//         // .then((json) => console.log(json));
+
+//     console.log("Sample a ", a);
+//     console.log("Sample b ", b);
+// };
+// sample();
