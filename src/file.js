@@ -236,17 +236,19 @@
 // sample();
 
 
-//Sequential execution
-// const sample = async () => {
-//     console.log("Started");
-//     const a = await fetch("https://jsonplaceholder.typicode.com/posts/1")
-//         .then((response) => response.json())
-//         // .then((json) => console.log(json));
-//     const b = await fetch("https://jsonplaceholder.typicode.com/posts/1")
-//         .then((response) => response.json())
-//         // .then((json) => console.log(json));
+// Sequential execution
+const sample = async () => {
+    console.log("Started");
+    const a = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+        // const data = await a.json();
+        // console.log(data);
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    const b = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 
-//     console.log("Sample a ", a);
-//     console.log("Sample b ", b);
-// };
-// sample();
+    console.log("Sample a ", a);
+    console.log("Sample b ", b);
+};
+sample();
