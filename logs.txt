@@ -1,3 +1,0 @@
-New request at time 1772735832039 on route /
-New request at time 1772735855439 on route /about
-New request at time 1772735866940 on route /us
