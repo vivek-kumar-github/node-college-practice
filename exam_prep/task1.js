@@ -14,8 +14,8 @@ const myServer = http.createServer((req, res) => {
             res.end("Contact us");
         }
     });
-})
+});
 
 myServer.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
-})
+});
