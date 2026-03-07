@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
             }
         });
     } else if (pathName === "/notes") {
-        const cnt = fs.readFile(notes, "utf-8", (err, data) => {
+        const cnt = fs.readFile(notes, "utf8", (err, data) => {
             if (err) {
                 res.end("Error reading notes");
             } else if (!data) {
