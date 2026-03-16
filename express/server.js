@@ -2,6 +2,11 @@ const express = require("express");
 
 const app = express();                         //Initialize server
 
+require("dotenv").config({
+    path: ".env",
+    // path: ".env.prod"
+});
+
 const userRoutes = require("./routes/userRoutes");
 
 // app.get("/", (req, res) => {
@@ -33,10 +38,20 @@ const userRoutes = require("./routes/userRoutes");
 // });
 
 // Mount routes at the root so the routes defined in userRoutes.js work as expected.
+
+// const customMiddleWare = (req, res, next) => {
+//     console.log("Custom middleware ");
+//     next();
+// }
+
+// app.use(customMiddleWare);
+
 app.use("/", userRoutes);
 
-const PORT = 3000;
+const jwt_sec = process.env.JWT_SECRET;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
+    console.log(`JWT Secret: ${jwt_sec}`)
 })
