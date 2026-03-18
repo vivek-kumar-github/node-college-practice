@@ -8,6 +8,10 @@ exports.dynamicRoute = (req, res) => {
     res.end(`ID ${param1}\nRole ${param2}`);
 }
 
+exports.getStudents = (req, res) => {
+
+}
+
 exports.QueryParam = (req, res) => {
     const q1 = req.query.name;
     console.log(`Search query ${q1}`);
@@ -22,6 +26,11 @@ exports.getUsers = (req, res) => {
     res.json(users);
 }
 
+exports.addUsers = (req, res) => {
+    res.send("response sent");
+
+}
+
 exports.getUserById = (req, res) => {
     const userId = Number(req.params.id);
 
@@ -34,4 +43,5 @@ exports.getUserById = (req, res) => {
     }
 
     res.json(user);
+    // res.redirect("/users"); //redirects to this route
 }

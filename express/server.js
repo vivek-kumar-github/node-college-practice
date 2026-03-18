@@ -8,6 +8,7 @@ require("dotenv").config({
 });
 
 const userRoutes = require("./routes/userRoutes");
+const productRoute = require("./routes/productRoutes");
 
 // app.get("/", (req, res) => {
 //     res.send("Server set up Done");
@@ -47,6 +48,7 @@ const userRoutes = require("./routes/userRoutes");
 // app.use(customMiddleWare);
 
 app.use("/", userRoutes);
+app.use("/admin", productRoute);
 
 const jwt_sec = process.env.JWT_SECRET;
 const PORT = process.env.PORT;
