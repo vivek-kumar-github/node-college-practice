@@ -47,6 +47,26 @@ const productRoute = require("./routes/productRoutes");
 
 // app.use(customMiddleWare);
 
+
+const customMiddleWare1 = (req, res, next) => {
+    console.log("Custom middleware 1");
+    next();
+}
+
+const customMiddleWare2 = (req, res, next) => {
+    console.log("Custom middleware 2");
+    next();
+}
+
+const customMiddleWare3 = (req, res, next) => {
+    console.log("Custom middleware 3");
+    next();
+}
+
+app.use(customMiddleWare1);
+app.use(customMiddleWare2);
+app.use(customMiddleWare3);
+
 app.use("/", userRoutes);
 app.use("/admin", productRoute);
 
